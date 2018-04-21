@@ -1,6 +1,9 @@
 # Star Wars API Example
 
-## Steps
+## Features
 
-1. initialize create-react-app app
-2. write api call and store response in state when component mounts
+- lists planets in Star Wars universe when app mounts
+- planet names expand to show residents
+  - shows loading message while waiting for API response
+  - indicates lack of residents if response is empty
+  - NOTE: I chose not to make the API requests until the click event to make initial load time faster

@@ -27,7 +27,7 @@ class Planet extends Component {
 
         {
           expanded
-            ? <Residents residents={residents} />
+            ? <Residents residentUrls={residents} />
             : null
         }
       </li>
