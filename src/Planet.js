@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Residents from './Residents';
+
 class Planet extends Component {
   constructor(props) {
     super(props);
@@ -8,32 +10,26 @@ class Planet extends Component {
     };
   }
 
-  toggleExpanded = () => {
+  handleClick = () => {
+    // expand or collapse contents
     this.setState({ expanded: !this.state.expanded });
-  }
-
-  handleKeyPress = e => {
-    const key = e.keyCode;
-    console.log(key);
-    if (key === 13 || key === 27) { // Enter or Esc
-      this.toggleExpansion();
-    }
   }
 
   render() {
     const { expanded } = this.state;
-    const { name } = this.props;
+    const { name, residents } = this.props;
 
     return (
       <li>
-        <button
-          // tabIndex="0"
-          onKeyPress={this.handleKeyPress}
-          onClick={this.toggleExpanded}
-        >
+        <button onClick={this.handleClick}>
           {name}
         </button>
 
+        {
+          expanded
+            ? <Residents residents={residents} />
+            : null
+        }
       </li>
     );
   }
