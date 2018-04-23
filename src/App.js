@@ -24,12 +24,17 @@ class App extends Component {
         </header>
         <ul className="App-intro">
           {
-            planets.map(planet => (
-              <Planet
-                key={planet.name}
-                {...planet}
-              />
-            ))
+            planets.length
+              ? planets.map(planet => (
+                <Planet
+                  key={planet.name}
+                  {...planet}
+                />
+                ))
+              : <div>
+                  Planets not found.
+                  Please check your internet connection and refresh the page.
+                </div>
           }
         </ul>
       </div>
