@@ -1,42 +1,44 @@
 import React, { Component } from 'react';
 
-import { getPlanetResidents } from './api';
+import { UnorderedList, ListItem } from './styled/listElements';
+import { Loading } from './styled/residentElements';
 
-const ResidentList = ({ residents }) => (
-  residents.length
-    ? residents.map(resident => <li key={resident.name}>{resident.name}</li>)
-    : <div>This planet has no residents.</div>
-);
+import { getPlanetResidents } from './api';
+import ResidentList from './ResidentList';
 
 class Residents extends Component {
   constructor(props) {
     super(props);
     this.state = {
       residents: null,
+      unmounted: false,
     };
   }
 
   componentDidMount = () => {
     const { residentUrls } = this.props;
     getPlanetResidents(residentUrls)
-      .then(residents => this.setState({ residents }));
+      .then(residents => {
+        if (!this.state.unmounted) { this.setState({ residents }); }
+        else { console.log('unmounted'); }
+      });
   }
 
   componentWillUnmount = () => {
-    console.log(this.statePromises)
+    this.setState({ unmounted: true });
   }
 
   render() {
     const { residents } = this.state;
 
     return (
-      <ul>
+      <UnorderedList>
         {
           residents
             ? <ResidentList residents={residents} />
-            : <div>Loading...</div>
+            : <ListItem><Loading src="loading.svg" alt="Loading..." /></ListItem>
         }
-      </ul>
+      </UnorderedList>
     );
   }
 }

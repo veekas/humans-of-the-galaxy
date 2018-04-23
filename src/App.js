@@ -1,43 +1,50 @@
 import React, { Component } from 'react';
 
+import { AppContainer, Header, Title, MainLoading } from './styled/appElements';
+import { UnorderedList, ListItem } from './styled/listElements';
+import { Loading } from './styled/residentElements';
+
 import Planet from './Planet';
 
-import './App.css';
 import { getPlanets } from './api';
 
 class App extends Component {
   state = {
     planets: [],
+    loading: true,
   }
 
   componentDidMount = () => {
-    getPlanets().then(planets => this.setState({ planets }));
+    getPlanets().then(planets => {
+      this.setState({
+        planets,
+        loading: !this.state.loading,
+      });
+    });
   }
 
   render() {
-    const { planets } = this.state;
+    const { planets, loading } = this.state;
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Planets of Star Wars</h1>
-        </header>
-        <ul className="App-intro">
+      <AppContainer>
+        <Header>
+          <Title>People of Star Wars</Title>
+        </Header>
+        <UnorderedList>
           {
-            planets.length
-              ? planets.map(planet => (
+            !loading && planets.length
+              ?
+              planets.map(planet => (
                 <Planet
                   key={planet.name}
                   {...planet}
                 />
-                ))
-              : <div>
-                  Planets not found.
-                  Please check your internet connection and refresh the page.
-                </div>
+              ))
+              : <MainLoading src="loading.svg" alt="Loading..." />
           }
-        </ul>
-      </div>
+        </UnorderedList>
+      </AppContainer>
     );
   }
 }

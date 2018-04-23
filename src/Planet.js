@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import { ListItem } from './styled/listElements';
+import { Button } from './styled/planetElements';
+
 import Residents from './Residents';
 
 class Planet extends Component {
@@ -20,17 +23,17 @@ class Planet extends Component {
     const { name, residents } = this.props;
 
     return (
-      <li>
-        <button onClick={this.handleClick}>
+      <ListItem>
+        <Button onClick={this.handleClick}>
           {name}
-        </button>
+        </Button>
 
         {
           expanded
             ? <Residents residentUrls={residents} />
             : null
         }
-      </li>
+      </ListItem>
     );
   }
 }
