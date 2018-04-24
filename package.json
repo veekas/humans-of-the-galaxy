@@ -1,6 +1,7 @@
 {
   "name": "star-wars-planets",
-  "version": "0.1.0",
+  "description": "show all residents of the galaxy",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
