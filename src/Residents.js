@@ -11,21 +11,13 @@ class Residents extends Component {
     super(props);
     this.state = {
       residents: null,
-      unmounted: false,
     };
   }
 
   componentDidMount = () => {
     const { residentUrls } = this.props;
     getPlanetResidents(residentUrls)
-      .then(residents => {
-        if (!this.state.unmounted) { this.setState({ residents }); }
-        else { console.log('unmounted'); }
-      });
-  }
-
-  componentWillUnmount = () => {
-    this.setState({ unmounted: true });
+      .then(residents => { this.setState({ residents }); });
   }
 
   render() {
