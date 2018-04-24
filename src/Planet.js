@@ -14,7 +14,6 @@ class Planet extends Component {
   }
 
   handleClick = () => {
-    // expand or collapse contents
     this.setState({ expanded: !this.state.expanded });
   }
 
@@ -25,12 +24,12 @@ class Planet extends Component {
     return (
       <ListItem>
         <Button onClick={this.handleClick}>
-          {name}
           {
             expanded
               ? <Arrow src="close.svg" />
               : <Arrow src="open.svg" />
           }
+          {name}
         </Button>
 
         {

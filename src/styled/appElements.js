@@ -25,3 +25,18 @@ export const MainLoading = styled.img`
 export const MainContainer = styled.div`
   padding-bottom: 150px;
 `;
+
+export const ControlsContainer = styled.footer`
+  width: 100%;
+  bottom: 0px;
+  position: fixed;
+  background-color: #28333c;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const Control = styled.img`
+  height: 38px;
+  margin: 21.44px;
+`;

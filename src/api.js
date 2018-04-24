@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-export const getPlanets = () => {
-  const url = 'https://swapi.co/api/planets';
+export const getPlanets = (pageNumber = 1) => {
+  const url = `https://swapi.co/api/planets/?page=${pageNumber}`;
   return axios.get(url)
     .then(res => res.data.results)
     .catch(err => new Error(err.data));
