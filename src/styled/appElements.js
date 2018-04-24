@@ -12,7 +12,6 @@ export const Header = styled.header`
 `;
 
 export const Title = styled.h1`
-  margin: 10px;
   color: #ecf1c1;
   text-align: center;
   font-size: 2em;
@@ -21,4 +20,8 @@ export const Title = styled.h1`
 export const MainLoading = styled.img`
   display: block;
   margin: 0 auto;
+`;
+
+export const MainContainer = styled.div`
+  padding-bottom: 150px;
 `;

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import { AppContainer, Header, Title, MainLoading } from './styled/appElements';
+import { AppContainer, Header, Title, MainLoading, MainContainer } from './styled/appElements';
 import { UnorderedList } from './styled/listElements';
 
 import Planet from './Planet';
+import PageControls from './PageControls';
 
 import { getPlanets } from './api';
 
@@ -30,19 +31,24 @@ class App extends Component {
         <Header>
           <Title>People of Star Wars</Title>
         </Header>
-        <UnorderedList>
-          {
-            !loading && planets.length
-              ?
-              planets.map(planet => (
-                <Planet
-                  key={planet.name}
-                  {...planet}
-                />
-              ))
-              : <MainLoading src="loading.svg" alt="Loading..." />
-          }
-        </UnorderedList>
+
+        <MainContainer>
+          <UnorderedList>
+            {
+              !loading && planets.length
+                ?
+                planets.map(planet => (
+                  <Planet
+                    key={planet.name}
+                    {...planet}
+                  />
+                ))
+                : <MainLoading src="loading.svg" alt="Loading..." />
+            }
+          </UnorderedList>
+        </MainContainer>
+
+        <PageControls />
       </AppContainer>
     );
   }
