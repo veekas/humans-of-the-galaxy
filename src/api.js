@@ -3,7 +3,7 @@ const axios = require('axios');
 export const getPlanets = () => {
   const url = 'https://swapi.co/api/planets';
   return axios.get(url)
-    .then(res => res.data.results) // example response object below
+    .then(res => res.data.results)
     .catch(err => new Error(err.data));
 };
 
@@ -17,6 +17,6 @@ export const getPlanetResidents = residentUrls => {
       const residents = [];
       results.map(resident => residents.push(resident.data));
       return residents;
-    }) // example response object below
+    })
     .catch(err => new Error(err.message, err.data));
 };
