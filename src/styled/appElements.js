@@ -9,12 +9,13 @@ export const Header = styled.header`
   position: sticky;
   background-color: #28333c;
   padding: 20px;
-  color: #ecf1c1;
 `;
 
 export const Title = styled.h1`
+  margin: 10px;
+  color: #ecf1c1;
   text-align: center;
-  font-size: 1.8em;
+  font-size: 2em;
 `;
 
 export const MainLoading = styled.img`

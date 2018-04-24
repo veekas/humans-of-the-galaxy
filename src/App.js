@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import { AppContainer, Header, Title, MainLoading } from './styled/appElements';
-import { UnorderedList, ListItem } from './styled/listElements';
-import { Loading } from './styled/residentElements';
+import { UnorderedList } from './styled/listElements';
 
 import Planet from './Planet';
 
