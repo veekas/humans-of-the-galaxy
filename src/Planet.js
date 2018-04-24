@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { ListItem } from './styled/listElements';
-import { Button } from './styled/planetElements';
+import { Button, Arrow } from './styled/planetElements';
 
 import Residents from './Residents';
 
@@ -26,6 +26,11 @@ class Planet extends Component {
       <ListItem>
         <Button onClick={this.handleClick}>
           {name}
+          {
+            expanded
+              ? <Arrow src="close.svg" />
+              : <Arrow src="open.svg" />
+          }
         </Button>
 
         {
