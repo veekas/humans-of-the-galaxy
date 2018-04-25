@@ -16,7 +16,8 @@ const ResidentList = ({ residents }) => (
 );
 
 ResidentList.propTypes = {
-  residents: PropTypes.arrayOf(PropTypes.object).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  residents: PropTypes.array.isRequired,
 };
 
 export default ResidentList;

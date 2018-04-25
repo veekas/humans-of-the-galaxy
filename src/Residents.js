@@ -50,7 +50,8 @@ class Residents extends Component {
 }
 
 Residents.propTypes = {
-  residentUrls: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  residentUrls: PropTypes.array.isRequired,
 };
 
 export default Residents;
