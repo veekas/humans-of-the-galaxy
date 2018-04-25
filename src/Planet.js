@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { ListItem } from './styled/listElements';
 import { Button, Arrow } from './styled/planetElements';
@@ -41,5 +42,10 @@ class Planet extends Component {
     );
   }
 }
+
+Planet.propTypes = {
+  name: PropTypes.string.isRequired,
+  residents: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default Planet;
