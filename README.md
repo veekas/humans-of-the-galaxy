@@ -21,3 +21,4 @@ After it compiles, visit [localhost:3000](http://localhost:3000) if your browser
   - indicates lack of residents if response is empty
 - paginated through all planets
 - automated snapshot tests
+- linted with eslint/airbnb style guide
