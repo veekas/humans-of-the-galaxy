@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { UnorderedList, ListItem } from './styled/listElements';
 import { Loading } from './styled/planetElements';
@@ -47,5 +48,9 @@ class Residents extends Component {
     );
   }
 }
+
+Residents.propTypes = {
+  residentUrls: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default Residents;
