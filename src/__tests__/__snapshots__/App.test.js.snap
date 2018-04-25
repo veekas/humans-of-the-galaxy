@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App> matches snapshot on shallow render 1`] = `
+<div
+  className="sc-htpNat eZrIBQ"
+>
+  <header
+    className="sc-bxivhb jDSttw"
+  >
+    <h1
+      className="sc-ifAKCX iLUShu"
+    >
+      People of The Galaxy
+    </h1>
+  </header>
+  <div
+    className="sc-bZQynM gRuQiS"
+  >
+    <img
+      alt="Loading..."
+      className="sc-EHOje hbHrld"
+      src="loading.svg"
+    />
+  </div>
+  <footer
+    className="sc-gzVnrw kgUxTz"
+  >
+    <img
+      className="sc-htoDjs dSpAyG"
+      onClick={[Function]}
+      src="back.svg"
+    />
+    <h1
+      className="sc-ifAKCX iLUShu"
+    >
+      Page 
+      1
+       of 7
+    </h1>
+    <img
+      className="sc-htoDjs dSpAyG"
+      onClick={[Function]}
+      src="next.svg"
+    />
+  </footer>
+</div>
+`;
