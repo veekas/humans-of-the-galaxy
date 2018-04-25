@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Planet> matches snapshot on shallow render 1`] = `
+<li
+  className="sc-bwzfXH bYkelo"
+>
+  <button
+    className="sc-htpNat kxODhC"
+    onClick={[Function]}
+  >
+    <img
+      className="sc-bxivhb inZzjj"
+      src="open.svg"
+    />
+    Tatooine
+  </button>
+</li>
+`;
