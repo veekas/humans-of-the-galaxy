@@ -1,6 +1,6 @@
 {
-  "name": "star-wars-planets",
-  "description": "show all residents of the galaxy",
+  "name": "people-of-the-galaxy",
+  "description": "show all residents of the star wars universe by planet",
   "version": "0.2.0",
   "private": true,
   "dependencies": {
