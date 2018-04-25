@@ -4,7 +4,7 @@
 
 To view the site in production, visit [people-of-the-galaxy.netlify.com](https://people-of-the-galaxy.netlify.com)
 
-To run locally, run the following commands in the project root folder in terminal:
+To run locally, run the following commands in the project root folder in your terminal:
 
 ```bash
 yarn # npm i
@@ -12,6 +12,8 @@ yarn start # npm start
 ```
 
 After it compiles, visit [localhost:3000](http://localhost:3000) if your browser.
+
+To test, run `yarn test` in your terminal.
 
 ## Features
 
@@ -21,4 +23,3 @@ After it compiles, visit [localhost:3000](http://localhost:3000) if your browser
   - indicates lack of residents if response is empty
 - paginated through all planets
 - automated snapshot tests
-- linted with eslint/airbnb style guide
