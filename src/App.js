@@ -7,11 +7,10 @@ import {
   Title,
   MainLoading,
   MainContainer,
-  Control,
-  ControlsContainer,
 } from './styled/appElements';
 
 import Planet from './Planet';
+import PageControls from './PageControls';
 
 import { getPlanets } from './api';
 
@@ -22,8 +21,11 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.mounted = true;
     const { pageNumber } = this.state;
+
+    // prevents memory leak when user navigates away before promise resolves
+    this.mounted = true;
+
     getPlanets(pageNumber).then(planets => {
       if (this.mounted) {
         this.setState({
@@ -37,28 +39,19 @@ class App extends Component {
     this.mounted = false;
   }
 
-  getPrevPage = () => {
+  paginate = direction => {
     const { pageNumber } = this.state;
-    const newPage = pageNumber - 1;
-    if (pageNumber > 1) {
-      getPlanets(newPage).then(planets => {
-        if (this.mounted) {
-          this.setState({ planets, pageNumber: newPage });
-        }
-      });
-    }
-  }
 
-  getNextPage = () => {
-    const { pageNumber } = this.state;
-    const newPage = pageNumber + 1;
-    if (pageNumber < 7 && this.mounted) { // there are 7 pages total
-      getPlanets(newPage).then(planets => {
-        if (this.mounted) {
-          this.setState({ planets, pageNumber: newPage });
-        }
-      });
-    }
+    // get new page number based on direction argument
+    let newPage = pageNumber;
+    if (direction === 'next' && pageNumber < 7) newPage += 1;
+    else if (direction === 'back' && pageNumber > 1) newPage -= 1;
+
+    getPlanets(newPage).then(planets => {
+      if (this.mounted) {
+        this.setState({ planets, pageNumber: newPage });
+      }
+    });
   }
 
   render() {
@@ -72,27 +65,26 @@ class App extends Component {
 
         <MainContainer>
           {
-            planets.length
-                ?
-                  <UnorderedList>
-                    {
-                      planets.map(planet => (
-                        <Planet
-                          key={planet.name}
-                          {...planet}
-                        />
-                      ))
-                    }
-                  </UnorderedList>
-                : <MainLoading src="loading.svg" alt="Loading..." />
+          planets.length
+              ?
+                <UnorderedList>
+                  {
+                    planets.map(planet => (
+                      <Planet
+                        key={planet.name}
+                        {...planet}
+                      />
+                    ))
+                  }
+                </UnorderedList>
+              : <MainLoading src="loading.svg" alt="Loading..." />
             }
         </MainContainer>
 
-        <ControlsContainer>
-          <Control src="back.svg" onClick={this.getPrevPage} />
-          <Title>Page {pageNumber} of 7</Title>
-          <Control src="next.svg" onClick={this.getNextPage} />
-        </ControlsContainer>
+        <PageControls
+          pageNumber={pageNumber}
+          paginate={this.paginate}
+        />
       </AppContainer>
     );
   }

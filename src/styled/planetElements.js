@@ -14,3 +14,9 @@ export const Arrow = styled.img`
   padding-right: 10px;
   height: 0.7em;
 `;
+
+export const Loading = styled.img`
+  height: 1.8em;
+  margin-top: -8px;
+  margin-bottom: -12px;
+`;

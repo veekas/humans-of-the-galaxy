@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { UnorderedList, ListItem } from './styled/listElements';
-import { Loading } from './styled/residentElements';
+import { Loading } from './styled/planetElements';
 
 import { getPlanetResidents } from './api';
 import ResidentList from './ResidentList';
@@ -16,7 +16,10 @@ class Residents extends Component {
 
   componentDidMount = () => {
     const { residentUrls } = this.props;
+
+    // prevents memory leak when user navigates away before promise resolves
     this.mounted = true;
+
     getPlanetResidents(residentUrls)
       .then(residents => {
         if (this.mounted) {
@@ -35,6 +38,7 @@ class Residents extends Component {
     return (
       <UnorderedList>
         {
+          // render loading icon while request is pending
           residents
             ? <ResidentList residents={residents} />
             : <ListItem><Loading src="loading.svg" alt="Loading..." /></ListItem>

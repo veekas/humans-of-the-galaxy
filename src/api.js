@@ -8,8 +8,11 @@ export const getPlanets = (pageNumber = 1) => {
 };
 
 export const getPlanetResidents = residentUrls => {
+  // convert urls to promises
   const promiseMap = [];
   residentUrls.map(url => promiseMap.push(axios.get(url)));
+
+  // resolve all promises
   return Promise.all(promiseMap)
     .then(results => {
       const residents = [];
