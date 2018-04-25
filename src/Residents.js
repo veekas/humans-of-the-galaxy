@@ -16,8 +16,17 @@ class Residents extends Component {
 
   componentDidMount = () => {
     const { residentUrls } = this.props;
+    this.mounted = true;
     getPlanetResidents(residentUrls)
-      .then(residents => { this.setState({ residents }); });
+      .then(residents => {
+        if (this.mounted) {
+          this.setState({ residents });
+        }
+      });
+  }
+
+  componentWillUnmount = () => {
+    this.mounted = false;
   }
 
   render() {

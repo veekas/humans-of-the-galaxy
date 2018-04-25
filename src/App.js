@@ -22,10 +22,19 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    this.mounted = true;
     const { pageNumber } = this.state;
     getPlanets(pageNumber).then(planets => {
-      this.setState({ planets });
+      if (this.mounted) {
+        this.setState({
+          planets,
+        });
+      }
     });
+  }
+
+  componentWillUnmount = () => {
+    this.mounted = false;
   }
 
   getPrevPage = () => {
@@ -33,7 +42,9 @@ class App extends Component {
     const newPage = pageNumber - 1;
     if (pageNumber > 1) {
       getPlanets(newPage).then(planets => {
-        this.setState({ planets, pageNumber: newPage });
+        if (this.mounted) {
+          this.setState({ planets, pageNumber: newPage });
+        }
       });
     }
   }
@@ -41,9 +52,11 @@ class App extends Component {
   getNextPage = () => {
     const { pageNumber } = this.state;
     const newPage = pageNumber + 1;
-    if (pageNumber < 7) { // there are 7 pages total
+    if (pageNumber < 7 && this.mounted) { // there are 7 pages total
       getPlanets(newPage).then(planets => {
-        this.setState({ planets, pageNumber: newPage });
+        if (this.mounted) {
+          this.setState({ planets, pageNumber: newPage });
+        }
       });
     }
   }

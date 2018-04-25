@@ -7,11 +7,9 @@ export const getPlanets = (pageNumber = 1) => {
     .catch(err => new Error(err.data));
 };
 
-const axiosGetWrapperFunction = url => axios.get(url);
-
 export const getPlanetResidents = residentUrls => {
   const promiseMap = [];
-  residentUrls.map(url => promiseMap.push(axiosGetWrapperFunction(url)));
+  residentUrls.map(url => promiseMap.push(axios.get(url)));
   return Promise.all(promiseMap)
     .then(results => {
       const residents = [];
