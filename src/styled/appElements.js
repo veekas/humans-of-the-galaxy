@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const AppContainer = styled.div`
+  min-height: 100vh;
+  position:relative;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 `;
 
@@ -23,10 +25,12 @@ export const MainLoading = styled.img`
 `;
 
 export const MainContainer = styled.div`
-  padding-bottom: 20px;
+  padding-bottom: 140px;
 `;
 
 export const ControlsContainer = styled.footer`
+  position: absolute;
+  bottom: 0;
   width: 100%;
   background-color: #28333c;
   padding: 20px;

@@ -1,6 +1,6 @@
 # "Humans" of the Galaxy
 
-## a React/Node.js example app using the Star Wars API
+## A React/Node.js example app using the Star Wars API
 
 To view the site in production, visit [humans-of-the-galaxy.netlify.com](https://humans-of-the-galaxy.netlify.com)
 
