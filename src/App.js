@@ -60,7 +60,7 @@ class App extends Component {
     return (
       <AppContainer>
         <Header>
-          <Title>People of The Galaxy</Title>
+          <Title>"Humans" of The Galaxy</Title>
         </Header>
 
         <MainContainer>

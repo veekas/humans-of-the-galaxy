@@ -1,7 +1,7 @@
 {
-  "name": "people-of-the-galaxy",
+  "name": "humans-of-the-galaxy",
   "description": "show all residents of the star wars universe by planet",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
