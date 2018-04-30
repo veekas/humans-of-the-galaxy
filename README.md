@@ -4,6 +4,8 @@
 
 To view the site in production, visit [humans-of-the-galaxy.netlify.com](https://humans-of-the-galaxy.netlify.com)
 
+![Demo GIF](/humans-of-the-galaxy.gif)
+
 ### How to Run
 
 To run locally, run the following commands in the project root folder in your terminal:
